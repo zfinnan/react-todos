@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import ListItem from './Components/ListItem';
+
+const doThis = ["wake up", "brush teeth", "eat breakfast"]
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+  const list = ['Learn React', '???', 'Profit','Chill']
+  const todos = list.map((todo, index) => {
+    return <ListItem doThis={todo} key={`list-item-${index}`} />
+  })
+  
+  return(
+    <div>
+      <header id="header">My List</header>
+      <div>
+        <p id="toDoList">
+          {todos}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <p>👌🏻</p>
+      <p id="gloat">Best, most impressive React App ever</p>
     </div>
-  );
+  )
 }
+
 
 export default App;
